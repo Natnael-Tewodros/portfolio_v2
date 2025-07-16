@@ -12,38 +12,6 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/Natnael-Tewodros/My-calculator",
       demo: "https://my-calculator-seven-delta.vercel.app/"
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-      tech: ["Vue.js", "Express", "Socket.io", "MongoDB"],
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "Weather Dashboard",
-      description: "A responsive weather dashboard that displays current conditions and forecasts. Built with React and integrated with multiple weather APIs.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-      tech: ["React", "TypeScript", "Chart.js", "API Integration"],
-      github: "#",
-      demo: "#"
-    },
-    {
-      title: "Portfolio Website",
-      description: "A modern, responsive portfolio website built with React and Tailwind CSS. Features smooth animations and a contact form.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-      tech: ["React", "Tailwind CSS", "Framer Motion"],
-      github: "#",
-      demo: "#"
     }
   ];
 
