@@ -23,12 +23,12 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center md:items-center gap-10 md:gap-20 animate-fade-in">
           {/* Profile Image */}
 <div className="flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto">
-  <div className="relative rounded-full overflow-hidden w-48 h-48 md:w-64 md:h-64 border-4 border-white dark:border-gray-900 gradient-border shadow-2xl bg-gray-100 dark:bg-gray-800">
+  <div className="relative rounded-full overflow-hidden w-48 h-48 md:w-64 md:h-64 ring-4 ring-blue-400/80 shadow-2xl bg-white">
     <img
       src="/assets/nat1.jpg"
       alt="Natnael Tewodros"
-      className="absolute rounded-full object-cover"
-      style={{height:'100%',width:'100%',left:0,top:0,right:0,bottom:0,color:'transparent'}}
+      className="absolute inset-0 h-full w-full rounded-full object-cover object-center"
+      style={{ color: 'transparent' }}
     />
   </div>
 </div>
@@ -38,7 +38,9 @@ const Hero = () => {
   <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gray-900 dark:text-white">
     <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">Natnael Tewodros</span>
   </h1>
-  <h2 className="text-2xl md:text-3xl font-semibold text-blue-500 dark:text-blue-400 mb-4">Junior Frontend Developer &amp; Backend Developer</h2>
+  <h2 className="text-2xl md:text-3xl font-semibold text-blue-500 dark:text-blue-400 mb-4">
+  <MotionText texts={developerTitles} />
+</h2>
   <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
   I build scalable frontend & backend systems, automate workflows, and turn real-world ideas into powerful web applications using modern tools like the MERN stack.
   </p>
