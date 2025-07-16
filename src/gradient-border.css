@@ -1,0 +1,25 @@
+/* Custom gradient border utility for Tailwind */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  z-index: 0;
+  border-radius: 9999px;
+  padding: 0;
+  background: linear-gradient(90deg, #2563eb 0%, #9333ea 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+}
+.gradient-border > * {
+  position: relative;
+  z-index: 1;
+}
