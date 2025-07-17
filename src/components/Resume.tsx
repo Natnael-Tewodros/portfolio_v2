@@ -32,20 +32,20 @@ const workExperience = [
 
 const education = [
   {
+    title: "ALX  Pathway Program",
+    company: "ALX, Online/Remote",
+    date: "Oct 2024 – Present",
+    details: [
+      `<span class="block text-base md:text-lg font-medium text-gray-800 dark:text-gray-100 mb-2">The <span class='text-purple-600 dark:text-purple-400 font-semibold'>ALX Pathway</span> is an innovative program designed for African high school graduates seeking internationally accredited university degrees. It provides access to top global universities and scholarship opportunities worth up to <span class='text-blue-600 dark:text-blue-400 font-semibold'>$85,000 per year</span>. The 8-month Pathway Foundations phase builds essential academic and professional skills while preparing learners to qualify for degree sponsorships and succeed in their future studies.</span>`
+    ]
+  },
+  {
     title: "Bachelor of Science In Information Technology",
     company: "Assosa University, Assosa, Ethiopia",
     date: "10/2019 – 07/2024",
     details: [
       `<span class="block text-base md:text-lg font-medium text-gray-800 dark:text-gray-100 mb-2">Graduated from <span class='text-blue-600 dark:text-blue-400 font-semibold'>Assosa University</span> with a Bachelor’s degree in Information Technology. Built a strong foundation in <span class='text-purple-600 dark:text-purple-400 font-semibold'>web development</span>, <span class='text-purple-600 dark:text-purple-400 font-semibold'>systems design</span>, and <span class='text-purple-600 dark:text-purple-400 font-semibold'>networking</span>. Throughout my studies, I actively explored coding beyond the classroom—participating in projects, mentoring peers, and staying curious about real-world tech solutions.</span>`, 
       "CGPA 3.26, Exit exam pass."
-    ]
-  },
-  {
-    title: "ALX  Pathway Program",
-    company: "ALX, Online/Remote",
-    date: "Oct 2024 – Present",
-    details: [
-      `<span class="block text-base md:text-lg font-medium text-gray-800 dark:text-gray-100 mb-2">The <span class='text-purple-600 dark:text-purple-400 font-semibold'>ALX Pathway</span> is an innovative program designed for African high school graduates seeking internationally accredited university degrees. It provides access to top global universities and scholarship opportunities worth up to <span class='text-blue-600 dark:text-blue-400 font-semibold'>$85,000 per year</span>. The 8-month Pathway Foundations phase builds essential academic and professional skills while preparing learners to qualify for degree sponsorships and succeed in their future studies.</span>`
     ]
   }
 ];
