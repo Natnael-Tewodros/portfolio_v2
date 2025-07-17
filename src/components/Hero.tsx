@@ -51,7 +51,7 @@ const Hero = () => {
     >
       Contact Me
     </Button>
-    <a href="/Natnael_Resume.pdf" download className="w-full sm:w-auto">
+    <a href="/resume.pdf" download className="w-full sm:w-auto">
       <Button
         className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg"
         type="button"

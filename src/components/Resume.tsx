@@ -128,7 +128,7 @@ const Resume = () => {
             <p className="text-blue-100 text-sm">Download my detailed CV for a complete overview of my experience.</p>
           </div>
           <a
-            href="/Natnael_Resume.pdf"
+            href="/resume.pdf"
             download
             className="inline-flex items-center px-5 py-2 bg-white text-blue-600 font-semibold rounded-md shadow hover:bg-blue-50 transition-colors border border-blue-100 focus:outline-none"
           >
