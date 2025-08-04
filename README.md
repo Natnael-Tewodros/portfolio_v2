@@ -37,7 +37,7 @@ This project showcases my skills, projects, and experiences as a web developer. 
 
 ## Live Demo
 
-[View Portfolio Live](<YOUR_LIVE_DEMO_URL>)
+[View Portfolio Live](https://natnael-portfolio-38.vercel.app/)
 
 ---
 
