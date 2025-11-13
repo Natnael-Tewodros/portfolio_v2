@@ -27,7 +27,7 @@ const Hero = () => {
     <img
       src="/assets/nat1.jpg"
       alt="Natnael Tewodros"
-      className="absolute inset-0 h-full w-full rounded-full object-cover object-center"
+      className="absolute inset-0 scale-125 w-full rounded-full object-cover object-center"
       style={{ color: 'transparent' }}
     />
   </div>
