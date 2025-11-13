@@ -51,7 +51,7 @@ const Contact = () => {
             Let's discuss your next project or just say hello!
           </p>
         <div className="flex flex-row flex-wrap justify-center items-center gap-x-6 gap-y-4 w-full py-4">
-                <a href="https://t.me/natnael_20" target="_blank" rel="noopener noreferrer" className="mr-4">
+                <a href="https://t.me/Natnael_Tew" target="_blank" rel="noopener noreferrer" className="mr-4">
                   <Button className="flex items-center gap-3 bg-blue-400 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 3.75 11.25 21.75l-3.75-7.5-7.5-3.75L21.75 3.75z" /></svg>
                     Telegram
