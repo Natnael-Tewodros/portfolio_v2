@@ -1,189 +1,98 @@
-
-import { Code, Database, Globe, Smartphone, Server, Palette } from "lucide-react";
-// Official tech icons from react-icons
-import { FaHtml5, FaCss3Alt, FaJava, FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub, FaLinux } from "react-icons/fa";
-import { SiCplusplus, SiC, SiExpress, SiJavascript, SiShadcnui, SiMysql, SiMongodb, SiPostgresql, SiSupabase, SiTailwindcss } from "react-icons/si";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Code, Database, Server, Layout } from "lucide-react";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaJava, FaGitAlt, FaGithub, FaLinux } from "react-icons/fa";
+import { SiTailwindcss, SiShadcnui, SiExpress, SiC, SiCplusplus, SiMysql, SiMongodb, SiPostgresql, SiSupabase, SiNextdotjs, SiGo, SiTypescript, SiVite } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
 
 const Skills = () => {
-  const frontendSkills = [
-  { icon: FaHtml5, name: "HTML" },
-  { icon: FaCss3Alt, name: "CSS" },
-  { icon: SiJavascript, name: "JavaScript" },
-  { icon: FaReact, name: "React" },
-  { icon: SiTailwindcss, name: "Tailwind CSS" },
-  { icon: SiShadcnui, name: "Shadcn UI" },
-];
-const backendSkills = [
-  { icon: FaNodeJs, name: "Node.js" },
-  { icon: SiExpress, name: "Express" },
-  { icon: FaPython, name: "Python" },
-  { icon: FaJava, name: "Java" },
-  { icon: SiC, name: "C" },
-  { icon: SiCplusplus, name: "C++" },
-];
-const databaseSkills = [
-  { icon: SiMysql, name: "MySQL" },
-  { icon: SiMongodb, name: "MongoDB" },
-  { icon: SiPostgresql, name: "PostgreSQL" },
-  { icon: SiSupabase, name: "Supabase" },
-];
-const techStackHighlight = [
-  { icon: SiJavascript, name: "JavaScript" },
-  { icon: FaHtml5, name: "HTML" },
-  { icon: FaCss3Alt, name: "CSS" },
-  { icon: FaPython, name: "Python" },
-  { icon: FaJava, name: "Java" },
-  { icon: FaReact, name: "React" },
-  { icon: SiTailwindcss, name: "Tailwind CSS" },
-  { icon: FaGitAlt, name: "Git" },
-  { icon: FaGithub, name: "GitHub" },
-  { icon: FaLinux, name: "Linux" },
-  { icon: FaNodeJs, name: "Node.js" },
-  { icon: SiExpress, name: "Express" },
-  { icon: SiMysql, name: "MySQL" },
-  { icon: SiMongodb, name: "MongoDB" },
-  { icon: SiPostgresql, name: "PostgreSQL" },
-  { icon: SiSupabase, name: "Supabase" },
-  { icon: SiCplusplus, name: "C++" },
-  { icon: SiC, name: "C" },
-  { icon: SiShadcnui, name: "Shadcn UI" },
-];
+  const skillCategories = [
+    {
+      title: "Frontend",
+      icon: Layout,
+      skills: [
+        { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
+        { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
+        { name: "JavaScript", icon: FaJs, color: "text-yellow-400" },
+        { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
+        { name: "React", icon: FaReact, color: "text-cyan-400" },
+        { name: "Next.js", icon: SiNextdotjs, color: "text-foreground" },
+        { name: "Vite", icon: SiVite, color: "text-purple-500" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500" },
+        { name: "Shadcn UI", icon: SiShadcnui, color: "text-foreground" }
+      ]
+    },
+    {
+      title: "Backend",
+      icon: Server,
+      skills: [
+        { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
+        { name: "Express", icon: SiExpress, color: "text-foreground" },
+        { name: "Python", icon: FaPython, color: "text-blue-400" },
+        { name: "Go", icon: SiGo, color: "text-cyan-400" },
+        { name: "Java", icon: FaJava, color: "text-red-500" },
+        { name: "C", icon: SiC, color: "text-blue-600" },
+        { name: "C++", icon: SiCplusplus, color: "text-blue-700" }
+      ]
+    },
+    {
+      title: "Database",
+      icon: Database,
+      skills: [
+        { name: "MySQL", icon: SiMysql, color: "text-blue-500" },
+        { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
+        { name: "Supabase", icon: SiSupabase, color: "text-green-400" }
+      ]
+    },
+    {
+      title: "Tools & Others",
+      icon: Code,
+      skills: [
+        { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
+        { name: "GitHub", icon: FaGithub, color: "text-foreground" },
+        { name: "Linux", icon: FaLinux, color: "text-foreground" },
+        { name: "VS Code", icon: VscCode, color: "text-blue-500" }
+      ]
+    }
+  ];
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3"> <span className="text-blue-500">Technical Skills</span></h2>
-<div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4"></div>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            Below are the core technologies and tools I use to build modern, scalable web applications.
+    <section id="skills" className="py-24 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Technical Skills</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            The technologies and tools I use to build modern applications.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8 mb-8">
-          {/* Frontend Skills Card */}
-          <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 shadow-lg flex-1 min-w-[220px] flex flex-col items-center">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-              <Palette className="inline-block text-pink-400" size={18} /> Frontend
-            </h3>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {frontendSkills.map((skill, idx) => {
-                const IconComponent = skill.icon;
-                let hoverColor = "group-hover:text-blue-400";
-                switch (skill.name) {
-                  case "JavaScript": hoverColor = "group-hover:text-yellow-400"; break;
-                  case "HTML": hoverColor = "group-hover:text-orange-500"; break;
-                  case "CSS": hoverColor = "group-hover:text-blue-500"; break;
-                  case "Tailwind CSS": hoverColor = "group-hover:text-cyan-400"; break;
-                  case "React": hoverColor = "group-hover:text-cyan-300"; break;
-                  case "Shadcn UI": hoverColor = "group-hover:text-violet-400"; break;
-                  default: hoverColor = "group-hover:text-blue-400";
-                }
-                return (
-                  <div key={idx} className="group flex flex-col items-center transition-transform duration-200 hover:scale-110 hover:ring-2 hover:ring-blue-400 bg-transparent rounded-lg p-2">
-                    <IconComponent size={28} className={`mb-2 text-blue-400 dark:text-blue-400 transition-colors duration-200 ${hoverColor}`} />
-                    <span className="text-xs text-gray-900 dark:text-white">{skill.name}</span>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skillCategories.map((category, index) => (
+            <Card key={index} className="border-border/20 bg-transparent hover:bg-card/10 transition-all duration-300">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <category.icon className="w-5 h-5 text-primary" />
                   </div>
-                );
-              })}
-            </div>
-          </div>
-          {/* Backend Skills Card */}
-          <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 shadow-lg flex-1 min-w-[220px] flex flex-col items-center">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-              <Server className="inline-block text-blue-400" size={18} /> Backend
-            </h3>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {backendSkills.map((skill, idx) => {
-                const IconComponent = skill.icon;
-                let hoverColor = "group-hover:text-blue-400";
-                switch (skill.name) {
-                  case "Node.js": hoverColor = "group-hover:text-green-500"; break;
-                  case "Express": hoverColor = "group-hover:text-gray-400"; break;
-                  case "Python": hoverColor = "group-hover:text-yellow-300"; break;
-                  case "Java": hoverColor = "group-hover:text-red-500"; break;
-                  case "C": hoverColor = "group-hover:text-blue-400"; break;
-                  case "C++": hoverColor = "group-hover:text-blue-500"; break;
-                  default: hoverColor = "group-hover:text-blue-400";
-                }
-                return (
-                  <div key={idx} className="group flex flex-col items-center transition-transform duration-200 hover:scale-110 hover:ring-2 hover:ring-blue-400 bg-transparent rounded-lg p-2">
-                    <IconComponent size={28} className={`mb-2 text-blue-400 dark:text-blue-400 transition-colors duration-200 ${hoverColor}`} />
-                    <span className="text-xs text-gray-900 dark:text-white">{skill.name}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          {/* Database & Cloud Skills Card */}
-          <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 shadow-lg flex-1 min-w-[220px] flex flex-col items-center">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-              <Database className="inline-block text-green-400" size={18} /> Database 
-            </h3>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {databaseSkills.map((skill, idx) => {
-                const IconComponent = skill.icon;
-                let hoverColor = "group-hover:text-blue-400";
-                switch (skill.name) {
-                  case "MySQL": hoverColor = "group-hover:text-blue-300"; break;
-                  case "MongoDB": hoverColor = "group-hover:text-green-400"; break;
-                  case "PostgreSQL": hoverColor = "group-hover:text-blue-400"; break;
-                  case "Supabase": hoverColor = "group-hover:text-green-300"; break;
-                  default: hoverColor = "group-hover:text-blue-400";
-                }
-                return (
-                  <div key={idx} className="group flex flex-col items-center transition-transform duration-200 hover:scale-110 hover:ring-2 hover:ring-blue-400 bg-transparent rounded-lg p-2">
-                    <IconComponent size={28} className={`mb-2 text-blue-400 dark:text-blue-400 transition-colors duration-200 ${hoverColor}`} />
-                    <span className="text-xs text-gray-900 dark:text-white">{skill.name}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        {/* Tech Stack Highlights */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6 text-center text-blue-400 tracking-wide">Tech Stack Highlights</h3>
-<div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4"></div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {techStackHighlight.map((skill, index) => {
-              const IconComponent = skill.icon;
-              // Color per tech for hover
-              let hoverColor = "group-hover:text-blue-400";
-              switch (skill.name) {
-                case "JavaScript": hoverColor = "group-hover:text-yellow-400"; break;
-                case "HTML": hoverColor = "group-hover:text-orange-500"; break;
-                case "CSS": hoverColor = "group-hover:text-blue-500"; break;
-                case "Tailwind CSS": hoverColor = "group-hover:text-cyan-400"; break;
-                case "React": hoverColor = "group-hover:text-cyan-300"; break;
-                case "Git": hoverColor = "group-hover:text-orange-400"; break;
-                case "GitHub": hoverColor = "group-hover:text-gray-300"; break;
-                case "Linux": hoverColor = "group-hover:text-black dark:group-hover:text-gray-100"; break;
-                case "Node.js": hoverColor = "group-hover:text-green-500"; break;
-                case "Express": hoverColor = "group-hover:text-gray-400"; break;
-                case "MongoDB": hoverColor = "group-hover:text-green-400"; break;
-                case "PostgreSQL": hoverColor = "group-hover:text-blue-400"; break;
-                case "MySQL": hoverColor = "group-hover:text-blue-300"; break;
-                case "Supabase": hoverColor = "group-hover:text-green-300"; break;
-                case "Python": hoverColor = "group-hover:text-yellow-300"; break;
-                case "Java": hoverColor = "group-hover:text-red-500"; break;
-                case "C": hoverColor = "group-hover:text-blue-400"; break;
-                case "C++": hoverColor = "group-hover:text-blue-500"; break;
-                case "Shadcn UI": hoverColor = "group-hover:text-violet-400"; break;
-                default: hoverColor = "group-hover:text-blue-400";
-              }
-              return (
-                <div
-                  key={index}
-                  className="group flex flex-col items-center justify-center px-6 py-4 bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-xl border border-gray-200 dark:border-gray-800 min-w-[120px] transition-transform duration-200 hover:scale-110 hover:ring-2 hover:ring-blue-400"
-                >
-                  <IconComponent size={32} className={`mb-2 text-blue-400 dark:text-blue-400 transition-colors duration-200 ${hoverColor}`} />
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white text-center">
-                    {skill.name}
-                  </span>
+                  <CardTitle className="text-lg font-semibold">{category.title}</CardTitle>
                 </div>
-              );
-            })}
-          </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4">
+                  {category.skills.map((skill) => (
+                    <div key={skill.name} className="flex flex-col items-center gap-2 group">
+                      <div className={`p-3 rounded-xl bg-background/50 border border-border/50 group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-300 ${skill.color}`}>
+                        <skill.icon className="w-6 h-6" />
+                      </div>
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors text-center">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

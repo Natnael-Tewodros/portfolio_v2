@@ -60,10 +60,10 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-6 pt-4">
           <p className="text-gray-400 text-center text-xs tracking-wider">
-             © 2025 All rights reserved
+            © 2025 All rights reserved
           </p>
           <p className="text-gray-400 text-center text-xs mt-1">
-            Inspired by <a href="https://chapimenge.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-400">chapimenge.com</a>
+            Made by Natnael
           </p>
         </div>
       </div>

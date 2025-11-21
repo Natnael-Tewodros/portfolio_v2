@@ -28,7 +28,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center gap-2">
-            <img src="/assets/logo.jpg" alt="Logo" className="w-10 h-10 rounded-full shadow" /> 
+            <img src="/assets/logo.jpg" alt="Logo" className="w-10 h-10 rounded-full shadow" />
           </div>
 
           {/* Desktop Navigation */}
@@ -42,43 +42,46 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
-            <div className="ml-4 relative group">
-              <button className="w-10 h-10 rounded-full bg-[#0b1622] dark:bg-[#0b1622] flex items-center justify-center shadow-lg focus:outline-none">
-                {theme === 'light' && <Sun size={20} className="text-white" />}
-                {theme === 'dark' && <Moon size={20} className="text-white" />}
-                {theme === 'system' && <span className="inline-block w-5 h-5 text-white">🖥️</span>}
-              </button>
-              <ul className="absolute left-0 mt-2 w-32 bg-[#0b1622] rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-150 z-50 p-2">
-                {['light', 'dark', 'system'].map((mode) => (
-                  <li key={mode}>
-                    <button
-                      onClick={() => setTheme(mode as 'light' | 'dark' | 'system')}
-                      className={`w-full text-left px-4 py-2 text-base text-white rounded-lg hover:bg-[#19273a] transition-colors ${theme === mode ? 'font-bold' : ''}`}
-                    >
-                      {mode.charAt(0).toUpperCase() + mode.slice(1)}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <button
+              onClick={() => {
+                const modes: Array<'light' | 'dark' | 'system'> = ['light', 'dark', 'system'];
+                const currentIndex = modes.indexOf(theme);
+                const nextIndex = (currentIndex + 1) % modes.length;
+                setTheme(modes[nextIndex]);
+              }}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              title={`Current: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`}
+            >
+              {theme === 'light' && <Sun size={20} className="text-foreground" />}
+              {theme === 'dark' && <Moon size={20} className="text-foreground" />}
+              {theme === 'system' && (
+                <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              )}
+            </button>
           </div>
 
           {/* Mobile Navigation Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <div className="flex items-center gap-1">
-              {['light', 'dark', 'system'].map((mode) => (
-                <button
-                  key={mode}
-                  onClick={() => setTheme(mode as 'light' | 'dark' | 'system')}
-                  className={`px-2 py-1 rounded text-xs font-semibold transition-colors duration-200 border focus:outline-none ${theme === mode ? (mode === 'dark' ? 'bg-gray-900 text-white border-gray-700' : mode === 'light' ? 'bg-gray-100 text-gray-900 border-gray-300' : 'bg-blue-100 text-blue-700 border-blue-300') : 'bg-transparent text-gray-500 border-gray-200 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
-                  title={mode.charAt(0).toUpperCase() + mode.slice(1)}
-                >
-                  {mode === 'light' && <Sun size={16} className="inline" />}
-                  {mode === 'dark' && <Moon size={16} className="inline" />}
-                  {mode === 'system' && <span className="inline-block w-4 h-4 align-middle">🖥️</span>}
-                </button>
-              ))}
-            </div>
+            <button
+              onClick={() => {
+                const modes: Array<'light' | 'dark' | 'system'> = ['light', 'dark', 'system'];
+                const currentIndex = modes.indexOf(theme);
+                const nextIndex = (currentIndex + 1) % modes.length;
+                setTheme(modes[nextIndex]);
+              }}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              title={`Current: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`}
+            >
+              {theme === 'light' && <Sun size={18} className="text-foreground" />}
+              {theme === 'dark' && <Moon size={18} className="text-foreground" />}
+              {theme === 'system' && (
+                <svg className="w-[18px] h-[18px] text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              )}
+            </button>
             <Button
               variant="ghost"
               size="icon"
