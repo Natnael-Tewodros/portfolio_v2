@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const developerTitles = [
-    "Junior MERNStack Developer",
+    " Fullstack Developer",
     "Tech Enthusiast",
     "Hardware Technician",
     "Sales man"
@@ -62,7 +62,7 @@ const Hero = () => {
               >
                 Contact Me
               </Button>
-              <a href="/resume.pdf" download className="w-full sm:w-auto">
+              <a href="/Natnael-Tewodros-Resume.pdf" download className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"

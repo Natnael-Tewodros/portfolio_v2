@@ -145,7 +145,7 @@ const Resume = () => {
                     <h4 className="font-semibold text-lg mb-1">Full Resume</h4>
                     <p className="text-sm text-muted-foreground mb-4">Download detailed PDF version</p>
                     <a
-                      href="/resume.pdf"
+                      href="/Natnael-Tewodros-Resume.pdf"
                       download
                       className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md shadow hover:bg-primary/90 transition-colors"
                     >
