@@ -4,7 +4,7 @@ const workExperience = [
   {
     title: "Part-time Developer",
     company: "Information Network Security Administration (INSA)",
-    date: "[Month, Year] – Present | Addis Ababa, Ethiopia",
+    date: "7/2025 – Present | Addis Ababa, Ethiopia",
     details: [
       "Assisted in developing internal tools for network security monitoring and incident logging.",
       "Collaborated with senior engineers to implement secure authentication workflows for administrative dashboards.",
@@ -15,7 +15,7 @@ const workExperience = [
   {
     title: "Hardware Maintenance Technician",
     company: "Next Generation Private Company",
-    date: "09/2024 – Present | Addis Ababa, Ethiopia",
+    date: "09/2024 – 7/2025 | Addis Ababa, Ethiopia",
     details: [
       "Diagnose and fix issues with desktops, laptops, and other devices to keep them running smoothly.",
       "Perform regular maintenance, upgrade hardware, and keep track of repair records.",
