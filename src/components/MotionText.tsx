@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 interface MotionTextProps {
@@ -36,7 +35,7 @@ const MotionText = ({ texts, className = "" }: MotionTextProps) => {
   return (
     <span className={className}>
       {displayText}
-      <span className="animate-pulse">|</span>
+      <span className="inline-block w-0.5 h-6 bg-gradient-to-b from-blue-500 to-purple-500 animate-pulse ml-1"></span>
     </span>
   );
 };
