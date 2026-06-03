@@ -35,7 +35,7 @@ const MotionText = ({ texts, className = "" }: MotionTextProps) => {
   return (
     <span className={className}>
       {displayText}
-      <span className="inline-block w-0.5 h-6 bg-gradient-to-b from-blue-500 to-purple-500 animate-pulse ml-1"></span>
+      <span className="ml-1 inline-block h-6 w-0.5 animate-pulse bg-primary"></span>
     </span>
   );
 };

@@ -1,6 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Star, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github, Star } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -16,88 +15,66 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-16 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900/50 dark:to-pink-900/20">
-        <div className="absolute inset-0 animate-gradient-shift bg-gradient-to-r from-pink-400/5 via-purple-400/5 to-blue-400/5"></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-slide-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text tracking-wide">
-            My Projects
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills and passion for development.
+    <section id="projects" className="section-band section-band-alt relative overflow-hidden py-20">
+      <div className="section-frame">
+        <div className="mb-12 grid gap-6 lg:grid-cols-[0.72fr_1fr] lg:items-end">
+          <div className="animate-slide-up">
+            <span className="section-label">04 / Projects</span>
+            <h2 className="mt-4 text-4xl font-black leading-tight md:text-6xl">Shipped work.</h2>
+          </div>
+          <p className="max-w-2xl text-base leading-8 text-foreground/70 md:text-lg">
+            A small but honest project shelf. Each piece gets room for what matters: the problem, the stack, and where to inspect it.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           {projects.map((project, index) => (
-            <Card
+            <article
               key={index}
-              className="group flex flex-col h-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden animate-slide-up"
+              className="technical-card group grid gap-6 overflow-hidden p-0 animate-slide-up lg:col-span-8 lg:grid-cols-[1.12fr_0.88fr]"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
-              {/* Image Container */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+              <div className="relative min-h-72 overflow-hidden border-b border-foreground/20 bg-[#111111] lg:border-b-0 lg:border-r">
                 {project.featured && (
-                  <div className="absolute top-3 left-3 z-10 flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                    <Star size={12} className="fill-current" />
+                  <div className="absolute left-4 top-4 z-10 flex items-center gap-2 border border-foreground bg-accent px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-accent-foreground shadow-[4px_4px_0_hsl(var(--foreground))]">
+                    <Star size={13} className="fill-current" />
                     Featured
                   </div>
                 )}
-                <div className="relative aspect-video overflow-hidden">
+                <div className="absolute inset-x-4 top-4 h-8 rounded-t-lg border border-white/10 bg-white/8" />
+                <div className="absolute inset-x-4 top-12 bottom-4 overflow-hidden rounded-b-xl border border-white/10 bg-white/95 p-3 shadow-[0_30px_60px_rgba(0,0,0,0.22)]">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
 
-              <CardHeader className="pb-3 px-4">
-                <div className="flex items-start justify-between gap-3">
-                  <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <div className="flex flex-col p-6">
+                <div className="mb-5 flex items-start justify-between gap-4 border-b border-foreground/20 pb-5">
+                  <h3 className="text-3xl font-black leading-tight transition-colors group-hover:text-primary">
                     {project.title}
-                  </CardTitle>
-                  {project.featured && (
-                    <div className="hidden sm:flex items-center gap-1 text-yellow-500">
-                      <Star size={14} className="fill-current" />
-                      <Star size={14} className="fill-current" />
-                      <Star size={14} className="fill-current" />
-                    </div>
-                  )}
+                  </h3>
+                  <ArrowUpRight className="mt-1 shrink-0 text-primary transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" size={28} />
                 </div>
-              </CardHeader>
 
-              <CardContent className="flex flex-col flex-1 space-y-3 px-4 pb-4">
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed flex-1 line-clamp-3">
+                <p className="text-sm leading-7 text-foreground/70">
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-semibold hover:shadow-md transition-shadow"
+                      className="border border-foreground/25 bg-background px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-foreground/70"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-2 pt-1 mt-auto">
+                <div className="mt-auto flex gap-3 pt-8">
                   {project.github && project.github !== '#' ? (
                     <a
                       href={project.github}
@@ -108,9 +85,9 @@ const Projects = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full group/btn border-2 border-gray-300 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300"
+                        className="h-11 w-full rounded-none border-foreground bg-transparent font-black hover:bg-card"
                       >
-                        <Github size={16} className="mr-2 group-hover/btn:scale-110 transition-transform" />
+                        <Github size={16} className="mr-2" />
                         Code
                       </Button>
                     </a>
@@ -132,16 +109,15 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button size="sm" className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <Button size="sm" className="h-11 w-full rounded-none border border-foreground bg-foreground font-black text-background hover:-translate-y-0.5 hover:bg-foreground/90">
                         <ExternalLink size={16} className="mr-2" />
                         Live Demo
-                        <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </a>
                   ) : (
                     <Button
                       size="sm"
-                      className="flex-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 opacity-50 cursor-not-allowed"
+                      className="flex-1 bg-blue-600 opacity-50 cursor-not-allowed"
                       disabled
                     >
                       <ExternalLink size={16} className="mr-2" />
@@ -149,19 +125,18 @@ const Projects = () => {
                     </Button>
                   )}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </article>
           ))}
-        </div>
-
-        {/* More Projects Coming Soon */}
-        <div className="mt-8 text-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-full border border-gray-200/50 dark:border-gray-800/50 shadow-lg">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-              More projects coming soon...
-            </span>
-          </div>
+          <aside className="technical-card flex flex-col justify-between bg-foreground text-background lg:col-span-4">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.22em] text-background/55">Next build</span>
+              <h3 className="mt-4 text-3xl font-black">More case studies as projects mature.</h3>
+            </div>
+            <p className="mt-10 border-t border-background/25 pt-5 text-sm leading-7 text-background/70">
+              The portfolio intentionally shows released work first. New projects can be added without changing the layout.
+            </p>
+          </aside>
         </div>
       </div>
     </section>

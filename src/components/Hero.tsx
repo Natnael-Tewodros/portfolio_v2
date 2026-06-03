@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MapPin, Terminal } from "lucide-react";
 import MotionText from "./MotionText";
 
 const Hero = () => {
@@ -9,153 +9,121 @@ const Hero = () => {
     const elementPosition = element?.getBoundingClientRect().top || 0;
     const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth"
-    });
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   };
 
   const developerTitles = [
-    "Junior MERNStack Developer",
+    " Full Stack Developer",
     "Tech Enthusiast",
     "Hardware Technician",
     "Problem Solver"
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-cyan-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-        <div className="absolute inset-0 animate-gradient-shift bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-cyan-400/10"></div>
-      </div>
+    <section id="home" className="relative min-h-screen overflow-hidden px-4 pt-28 sm:px-6 lg:px-8">
+      <div className="absolute left-0 top-20 hidden h-px w-1/3 bg-foreground/30 lg:block" />
+      <div className="absolute right-0 top-48 hidden h-px w-1/4 bg-foreground/30 lg:block" />
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-400/30 dark:to-purple-400/30 ${
-              i % 3 === 0 ? 'animate-float' : i % 3 === 1 ? 'animate-float-delayed' : 'animate-float-delayed-2'
-            }`}
-            style={{
-              width: `${Math.random() * 100 + 50}px`,
-              height: `${Math.random() * 100 + 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-500/20 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 border-2 border-purple-500/20 rotate-45 animate-float-delayed"></div>
-        <div className="absolute bottom-40 left-1/4 w-20 h-20 border-2 border-cyan-500/20 rounded-lg rotate-12 animate-float-delayed-2"></div>
-        <div className="absolute bottom-20 right-1/3 w-16 h-16 border-2 border-pink-500/20 rounded-full animate-float"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-10 md:gap-20">
-          {/* Profile Image */}
-          <div className="flex-shrink-0 flex justify-center md:justify-start w-full md:w-auto animate-slide-up">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-gradient-shift blur-xl opacity-50"></div>
-              <div className="relative rounded-full overflow-hidden w-48 h-48 md:w-72 md:h-72 ring-4 ring-white/50 dark:ring-gray-800/50 shadow-2xl bg-white dark:bg-gray-900">
-                <img
-                  src="/assets/nat1.jpg"
-                  alt="Natnael Tewodros"
-                  className="absolute inset-0 scale-125 w-full rounded-full object-cover object-center"
-                  style={{ color: 'transparent' }}
-                />
-              </div>
-              {/* Decorative elements around image */}
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-            </div>
+      <div className="relative mx-auto grid max-w-7xl items-end gap-10 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="pb-10 animate-slide-up">
+          <div className="mb-8 flex flex-wrap items-center gap-3 text-sm font-bold uppercase tracking-[0.22em] text-foreground/70">
+            <span className="inline-flex items-center gap-2 border border-foreground/30 bg-card px-3 py-2">
+              <Terminal size={16} className="text-primary" />
+              Available for junior roles
+            </span>
+            <span className="inline-flex items-center gap-2 px-1 py-2">
+              <MapPin size={16} className="text-accent" />
+              Addis Ababa
+            </span>
           </div>
 
-          {/* Hero Text Content */}
-          <div className="flex-1 text-center md:text-left bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl px-8 py-10 shadow-xl border border-white/20 dark:border-gray-800/50 flex flex-col justify-center items-center md:items-start animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-6 h-6 text-blue-500 animate-pulse" />
-              <span className="inline-block text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-400">
-                Welcome to my portfolio
-              </span>
-            </div>
+          <h1 className="max-w-5xl text-6xl font-black leading-[0.9] text-foreground sm:text-7xl lg:text-8xl">
+            Natnael
+            <span className="block text-primary">Tewodros</span>
+          </h1>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gray-900 dark:text-white">
-              <span className="gradient-text">Natnael Tewodros</span>
-            </h1>
-
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-700 dark:text-gray-300">
+          <div className="mt-7 max-w-2xl border-y border-foreground/25 py-5">
+            <h2 className="text-2xl font-bold text-foreground md:text-3xl">
               <MotionText texts={developerTitles} />
             </h2>
-
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed">
-              I build scalable frontend & backend systems, automate workflows, and turn real-world ideas into powerful web applications using modern tools like the MERN stack.
+            <p className="mt-4 text-lg leading-8 text-foreground/75">
+              I build practical MERN applications, automate useful workflows, and bring a hardware technician's troubleshooting discipline into web development.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-8 w-full">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button
+              onClick={scrollToContact}
+              className="h-12 rounded-none border border-foreground bg-foreground px-7 text-base font-bold text-background shadow-[6px_6px_0_hsl(var(--primary))] transition-transform hover:-translate-y-0.5 hover:bg-foreground/90"
+            >
+              Let's Connect
+              <ArrowDown className="ml-2 w-5 h-5" />
+            </Button>
+            <a href="/resume.pdf" download>
               <Button
-                onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-600 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-gradient-shift"
+                className="h-12 w-full rounded-none border border-foreground bg-transparent px-7 text-base font-bold text-foreground shadow-[6px_6px_0_hsl(var(--accent))] transition-transform hover:-translate-y-0.5 hover:bg-card sm:w-auto"
+                type="button"
               >
-                Let's Connect
-                <ArrowDown className="ml-2 w-5 h-5" />
+                Download CV
               </Button>
-              <a href="/resume.pdf" download className="w-full sm:w-auto">
-                <Button
-                  className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-blue-500 hover:border-purple-500 hover:bg-gray-50 dark:hover:bg-gray-700 px-8 py-4 text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300"
-                  type="button"
-                >
-                  Download CV
-                </Button>
-              </a>
-            </div>
+            </a>
+          </div>
 
-            <div className="flex flex-row gap-6 justify-center md:justify-start">
-              <a
-                href="mailto:natnaeltewodros@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Email"
-                className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-              >
-                <Mail size={24} />
-                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">Email</span>
-              </a>
-              <a
-                href="https://github.com/natnaeltewodros"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-              >
-                <Github size={24} />
-                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">GitHub</span>
-              </a>
-              <a
-                href="https://linkedin.com/in/natnaeltewodros"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="group relative w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-              >
-                <Linkedin size={24} />
-                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">LinkedIn</span>
-              </a>
+          <div className="mt-9 flex gap-3">
+            {[
+              { href: "mailto:natnaeltewodros03@gmail.com", label: "Email", icon: Mail },
+              { href: "https://github.com/natnaeltewodros", label: "GitHub", icon: Github },
+              { href: "https://linkedin.com/in/natnaeltewodros", label: "LinkedIn", icon: Linkedin }
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.label}
+                  className="flex h-11 w-11 items-center justify-center border border-foreground/40 bg-card text-foreground transition-all hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Icon size={20} />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-md pb-10 lg:max-w-none lg:pb-16">
+          <div className="paper-panel relative translate-y-2 -rotate-1 p-4 lg:translate-y-6">
+            <div className="absolute -left-5 top-7 z-10 bg-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-accent-foreground">
+              Portfolio
+            </div>
+            <div className="relative overflow-hidden border border-foreground/30 bg-card shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
+              <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between border-b border-foreground/15 bg-background/85 px-4 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/55 backdrop-blur-sm">
+                <span>Portrait frame</span>
+                <span>01</span>
+              </div>
+              <div className="aspect-[4/5] overflow-hidden pt-12">
+                <img
+                  src="/assets/Nati3.jpg"
+                  alt="Natnael Tewodros"
+                  className="h-full w-full object-cover object-[50%_18%] grayscale-[12%] contrast-105"
+                  style={{ color: "transparent" }}
+                />
+              </div>
+              <div className="absolute inset-x-4 bottom-4 grid grid-cols-3 border border-foreground/20 bg-background/85 text-center text-[11px] font-black uppercase tracking-[0.16em] text-foreground/75 backdrop-blur-sm">
+                <span className="border-r border-foreground/20 py-2">MERN</span>
+                <span className="border-r border-foreground/20 py-2">IT</span>
+                <span className="py-2">Repair</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-blue-500 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-        </div>
+      <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-foreground/55 md:flex">
+        <span className="h-px w-12 bg-foreground/35" />
+        Scroll
+        <span className="h-px w-12 bg-foreground/35" />
       </div>
     </section>
   );
