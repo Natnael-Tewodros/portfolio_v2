@@ -1,63 +1,56 @@
-import { Code2, Cpu, Gauge, Wrench } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 const About = () => {
-  const highlights = [
-    {
-      icon: Wrench,
-      title: "Hardware-trained",
-      description: "I approach bugs like diagnostics: isolate the fault, test the assumption, document the fix."
-    },
-    {
-      icon: Code2,
-      title: "MERN focused",
-      description: "React interfaces, Node APIs, MongoDB data models, and deployment-ready project structure."
-    },
-    {
-      icon: Gauge,
-      title: "Practical speed",
-      description: "I value simple flows, fast feedback, readable code, and features people can actually use."
-    },
-    {
-      icon: Cpu,
-      title: "Systems mindset",
-      description: "IT, networking, and repair experience help me think beyond the browser surface."
-    }
+  const socialLinks = [
+    { href: "https://github.com/Natnael-Tewodros", label: "GitHub", icon: Github },
+    { href: "https://www.linkedin.com/in/natnael-tewodros/", label: "LinkedIn", icon: Linkedin },
+    { href: "https://twitter.com/Natnael_Tew_7", label: "Twitter", icon: Twitter },
+    { href: "mailto:natnaeltewodros03@gmail.com", label: "Email", icon: Mail }
   ];
 
   return (
     <section id="about" className="section-band relative overflow-hidden py-20">
       <div className="section-frame">
-        <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div className="mx-auto max-w-4xl">
           <div className="sticky-card animate-slide-up">
             <span className="section-label">01 / About</span>
-            <h2 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
-              Built like a workbench, not a template.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-foreground/72 md:text-lg">
-              I am Natnael Tewodros, a junior MERN developer in Addis Ababa with an IT background and hands-on hardware maintenance experience. That mix shapes how I build: practical interfaces, clear troubleshooting, and software that is easy to inspect when something goes wrong.
-            </p>
-          </div>
+            <div className="mt-5">
+              <h2 className="text-4xl font-black leading-tight text-foreground md:text-6xl">
+                Let me introduce myself.
+              </h2>
+              <p className="mt-6 text-base leading-8 text-foreground/72 md:text-lg">
+                I started programming in early 2020, when I joined the Information Technology department at ASU. I first started with C++ then worked on web development for a while.
+              </p>
+              <p className="mt-4 text-base leading-8 text-foreground/72 md:text-lg">
+                My favorite coding language has been JavaScript, and I&apos;m conversant with Java, Python and, sometimes C. I&apos;m highly interested in Artificial Intelligence and Machine Learning.
+              </p>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {highlights.map((highlight, index) => {
-            const IconComponent = highlight.icon;
-            return (
-              <article
-                key={highlight.title}
-                className="technical-card group animate-slide-up"
-                style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-              >
-                <div className="mb-8 flex items-center justify-between border-b border-foreground/20 pb-4">
-                  <IconComponent size={26} className="text-primary transition-transform group-hover:-rotate-6" />
-                  <span className="font-display text-3xl font-black text-foreground/18">
-                    0{index + 1}
-                  </span>
+              <div className="mt-8 border-t border-foreground/15 pt-6">
+                <p className="text-sm font-black uppercase tracking-[0.22em] text-foreground/55">
+                  Find me on
+                </p>
+                <p className="mt-3 text-sm leading-7 text-foreground/68">
+                  Feel free to connect with me through the icons below.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {socialLinks.map((social) => {
+                    const IconComponent = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="flex h-11 w-11 items-center justify-center border border-foreground/30 bg-card text-foreground transition-all hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground"
+                      >
+                        <IconComponent size={20} />
+                      </a>
+                    );
+                  })}
                 </div>
-                <h3 className="text-xl font-black">{highlight.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-foreground/68">{highlight.description}</p>
-              </article>
-            );
-          })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

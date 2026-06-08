@@ -33,8 +33,7 @@ const Footer = () => {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Resume", href: "#resume" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" }
+    { name: "Projects", href: "#projects" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -50,7 +49,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative border-t border-foreground/25 bg-foreground text-background">
+    <footer className="relative border-t border-foreground/15 bg-background text-foreground">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.1fr_1fr_0.9fr]">
           <div className="space-y-4">
@@ -58,26 +57,26 @@ const Footer = () => {
               <img
                 src="/assets/logo.jpg"
                 alt="Natnael Tewodros logo"
-                className="h-12 w-12 rounded-full border border-background/35 object-cover object-center"
+                className="h-12 w-12 rounded-full border border-foreground/25 object-cover object-center"
               />
               <div>
                 <h3 className="font-display text-2xl font-black">Natnael Tewodros</h3>
-                <p className="text-sm font-bold uppercase tracking-[0.16em] text-background/50">Junior MERN Developer</p>
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-foreground/55">full-stack Developer</p>
               </div>
             </div>
-            <p className="max-w-sm text-sm leading-7 text-background/62">
-              Practical web applications shaped by IT support, hardware repair, and full-stack learning.
+            <p className="max-w-sm text-sm leading-7 text-foreground/65">
+              I'm a full-stack developer who has worked on a variety of projects. I'm passionate about building web applications that are both functional and user-friendly.
             </p>
-          </div>
+          </div>  
 
           <div>
-            <h4 className="text-xs font-black uppercase tracking-[0.22em] text-background/45">Navigate</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.22em] text-foreground/45">Navigate</h4>
             <div className="mt-4 flex flex-wrap gap-2">
               {quickLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="border border-background/20 px-3 py-2 text-sm font-bold text-background/70 transition-colors hover:border-background hover:text-background"
+                  className="border border-foreground/20 px-3 py-2 text-sm font-bold text-foreground/70 transition-colors hover:border-foreground hover:text-foreground hover:bg-card"
                 >
                   {link.name}
                 </button>
@@ -86,7 +85,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs font-black uppercase tracking-[0.22em] text-background/45">Connect</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.22em] text-foreground/45">Connect</h4>
             <div className="mt-4 flex gap-3">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
@@ -97,7 +96,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="group flex h-11 w-11 items-center justify-center border border-background/25 text-background/70 transition-all hover:-translate-y-1 hover:border-background hover:bg-background hover:text-foreground"
+                    className="group flex h-11 w-11 items-center justify-center border border-foreground/25 text-foreground/70 transition-all hover:-translate-y-1 hover:border-foreground hover:bg-foreground hover:text-background"
                   >
                     <IconComponent size={18} />
                   </a>
@@ -107,14 +106,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-background/20 pt-6">
+        <div className="mt-10 border-t border-foreground/15 pt-6">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-            <p className="text-sm text-background/50">
+            <p className="text-sm text-foreground/50">
               © {new Date().getFullYear()} Natnael Tewodros. All rights reserved.
             </p>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-2 border border-background/25 px-4 py-2 text-sm font-black uppercase tracking-[0.12em] text-background/70 transition-all hover:-translate-y-1 hover:border-background hover:text-background"
+              className="flex items-center gap-2 border border-foreground/25 px-4 py-2 text-sm font-black uppercase tracking-[0.12em] text-foreground/70 transition-all hover:-translate-y-1 hover:border-foreground hover:text-foreground hover:bg-card"
             >
               <ArrowUp size={16} />
               Back to Top
