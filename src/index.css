@@ -115,7 +115,7 @@
     display: flex;
     gap: 1.5rem;
     width: max-content;
-    animation: hero-scroll 65s linear infinite;
+    animation: hero-scroll 32s linear infinite;
   }
 
   .carousel-track-scroll:hover {
