@@ -1,106 +1,172 @@
-import { ArrowUpRight, Star } from "lucide-react";
+import { Image, Sparkle, Eye } from "@phosphor-icons/react";
+
+const projectsList = [
+  {
+    title: "Ekub Platform",
+    category: "Financial App",
+    platform: "React / Node.js",
+    description: "Financial saving circle platform with group payments, draw schedules, and transaction tracking.",
+    tech: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL"],
+    image: "/assets/project2.png",
+    github: "https://github.com/Natnael-Tewodros/Ekub",
+    demo: "#",
+    badge: "Active Project"
+  },
+  {
+    title: "ID Management System",
+    category: "Security & Credentials",
+    platform: "Spring Boot / Next.js",
+    description: "Team project for secure identity management, credential verification, and role-based access control.",
+    tech: ["Spring Boot", "Next.js", "PostgreSQL", "Docker"],
+    image: "/assets/project2.png",
+    github: "https://github.com/Natnael-Tewodros",
+    demo: "#",
+    badge: "Team Project"
+  },
+  {
+    title: "Careu General Trading",
+    category: "E-Commerce & Import",
+    platform: "React / Tailwind",
+    description: "Enterprise web platform for product catalogs, import/export services, and inquiries.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+    image: "/assets/project2.png",
+    github: "https://github.com/Natnael-Tewodros",
+    demo: "#",
+    badge: "Commercial"
+  },
+  {
+    title: "Feedback System (FMS)",
+    category: "Enterprise Analytics",
+    platform: "Spring Boot / Next.js",
+    description: "Centralized platform to collect, analyze, and process institutional client and employee feedback.",
+    tech: ["Spring Boot", "Next.js", "PostgreSQL", "Docker"],
+    image: "/assets/project2.png",
+    github: "https://github.com/Natnael-Tewodros",
+    demo: "#",
+    badge: "Full-Stack"
+  },
+  {
+    title: "Daycare Management",
+    category: "Education & Operations",
+    platform: "Spring Boot / Next.js",
+    description: "Operations platform for child records, attendance, staff coordination, and parent communication.",
+    tech: ["Spring Boot", "Next.js", "Docker", "PostgreSQL"],
+    image: "/assets/project2.png",
+    github: "https://github.com/Natnael-Tewodros",
+    demo: "#",
+    badge: "Full-Stack"
+  }
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Daycare Management System",
-      description:
-        "A platform designed to streamline daycare operations, including child records, attendance, staff coordination, and parent communication. It helps teams manage daily activities more efficiently while improving service quality and transparency. The backend is built with Spring Boot, the frontend with Next.js, and Docker is used for consistent deployment.",
-      tech: ["Spring Boot", "Next.js", "Docker"],
-      github: "#",
-      demo: "#",
-      featured: true
-    },
-    {
-      title: "Feedback Management System",
-      description:
-        "A centralized platform for collecting, managing, and analyzing feedback from employees, departments, and external clients to improve communication, services, and decision-making. It enables users to submit suggestions and reports efficiently through a structured system. The backend is built with Spring Boot, the frontend with Next.js, and Docker is used for consistent deployment.",
-      tech: ["Spring Boot", "Next.js", "Docker"],
-      github: "#",
-      demo: "#",
-      featured: false
-    }
-  ];
+  // Multiply items for seamless continuous looping track
+  const marqueeItems = [...projectsList, ...projectsList, ...projectsList];
 
   return (
-    <section id="projects" className="section-band section-band-alt relative overflow-hidden py-20">
-      <div className="section-frame">
-        <div className="mb-12 grid gap-6 lg:grid-cols-[0.72fr_1fr] lg:items-end">
-          <div className="animate-slide-up">
-            <span className="section-label">04 / Projects</span>
-            <h2 className="mt-4 text-4xl font-black leading-tight md:text-6xl">Shipped work.</h2>
+    <section id="projects" className="py-20 border-t border-border/60 relative bg-background overflow-hidden">
+      
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground block mb-1.5">
+              04 / Portfolio Showcase
+            </span>
+            <h2 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-foreground">
+              WORK SHOWCASE
+            </h2>
           </div>
-          <p className="max-w-2xl text-base leading-8 text-foreground/70 md:text-lg">
-            A small but honest project shelf. Each piece gets room for what matters: the problem, the stack, and where to inspect it.
-          </p>
+          <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Continuous Marquee Loop • Hover to Pause
+          </span>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {projects.map((project, index) => (
+      {/* Infinite Horizontal Marquee Track Container */}
+      <div className="w-full relative hero-carousel-container py-4">
+        <div className="carousel-track-scroll flex gap-6 w-max">
+          {marqueeItems.map((item, idx) => (
             <article
-              key={index}
-              className={`technical-card group grid gap-5 overflow-hidden p-0 animate-slide-up ${
-                index === 0 ? "lg:col-span-6" : "lg:col-span-6"
-              }`}
-              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              key={idx}
+              className="w-[320px] sm:w-[360px] flex-shrink-0 rounded-2xl border border-border/70 bg-card p-5 shadow-xl hover:border-sky-400/60 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="relative min-h-48 overflow-hidden border-b border-foreground/20 bg-[#111111]">
-                {project.featured && (
-                  <div className="absolute left-4 top-4 z-10 flex items-center gap-2 border border-foreground bg-accent px-3 py-2 text-xs font-black uppercase tracking-[0.14em] text-accent-foreground shadow-[4px_4px_0_hsl(var(--foreground))]">
-                    <Star size={13} className="fill-current" />
-                    Featured
-                  </div>
-                )}
-                <div className="absolute inset-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/8 via-white/4 to-transparent p-5 shadow-[0_30px_60px_rgba(0,0,0,0.18)]">
-                  <div className="flex h-full items-center justify-center rounded-xl border border-dashed border-white/12 bg-[#0f0f0f]/70">
-                    <div className="text-center">
-                      <p className="text-sm font-black uppercase tracking-[0.2em] text-white/45">
-                        No preview image
-                      </p>
-                      <p className="mt-2 text-xs uppercase tracking-[0.16em] text-white/25">
-                        Placeholder space
-                      </p>
-                    </div>
-                  </div>
+              {/* Card Header & Badges */}
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-[10px] font-bold uppercase tracking-wider">
+                    <Sparkle size={12} weight="fill" />
+                    {item.badge}
+                  </span>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    {item.platform}
+                  </span>
                 </div>
+
+                <h3 className="font-display font-black text-xl uppercase tracking-tight text-foreground group-hover:text-sky-400 transition-colors mb-2">
+                  {item.title}
+                </h3>
+                <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-widest block mb-3">
+                  {item.category}
+                </span>
+
+                <p className="text-xs text-foreground/80 leading-relaxed line-clamp-3 mb-4">
+                  {item.description}
+                </p>
               </div>
 
-              <div className="flex flex-col p-5">
-                <div className="mb-4 flex items-start justify-between gap-4 border-b border-foreground/20 pb-4">
-                  <h3 className="text-2xl font-black leading-tight transition-colors group-hover:text-primary md:text-3xl">
-                    {project.title}
-                  </h3>
-                  <ArrowUpRight className="mt-1 shrink-0 text-primary transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" size={28} />
-                </div>
-
-                <p className="text-sm leading-7 text-foreground/70">
-                  {project.description}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
+              {/* Tech Stack & Links */}
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {item.tech.map((t, tIdx) => (
                     <span
-                      key={tech}
-                      className="border border-foreground/25 bg-background px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-foreground/70"
+                      key={tIdx}
+                      className="px-2 py-0.5 rounded-full border border-border/60 bg-muted/40 text-[9px] font-semibold uppercase tracking-wider text-muted-foreground"
                     >
-                      {tech}
+                      {t}
                     </span>
                   ))}
                 </div>
+
+                {/* Actions: Replaced Code & View Project buttons with View Image button; Code & Live links commented out below */}
+                <div className="flex items-center gap-2 pt-3 border-t border-border/60">
+                  <button
+                    onClick={() => window.open(item.image, "_blank")}
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-border bg-foreground text-background hover:scale-105 text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 shadow-sm"
+                  >
+                    <Image size={15} weight="duotone" />
+                    <span>View Image</span>
+                  </button>
+
+                  {/* 
+                  Commented out per user request:
+                  {item.github !== "#" && (
+                    <a
+                      href={item.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/80 bg-card hover:bg-foreground hover:text-background text-[10px] font-semibold uppercase tracking-wider transition-all duration-300"
+                    >
+                      <GithubLogo size={14} weight="duotone" />
+                      <span>Code</span>
+                    </a>
+                  )}
+
+                  <a
+                    href={item.demo !== "#" ? item.demo : "#contact"}
+                    className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full border border-border bg-foreground text-background hover:scale-105 text-[10px] font-semibold uppercase tracking-wider transition-all duration-300"
+                  >
+                    <span>View Project</span>
+                    <ArrowUpRight size={13} weight="bold" />
+                  </a>
+                  */}
+                </div>
               </div>
+
             </article>
           ))}
-          <aside className="technical-card flex flex-col justify-between bg-foreground text-background lg:col-span-12">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.22em] text-background/55">Next build</span>
-              <h3 className="mt-4 text-3xl font-black">More case studies as projects mature.</h3>
-            </div>
-            <p className="mt-10 border-t border-background/25 pt-5 text-sm leading-7 text-background/70">
-              The portfolio intentionally shows released work first. New projects can be added without changing the layout.
-            </p>
-          </aside>
         </div>
       </div>
+
     </section>
   );
 };

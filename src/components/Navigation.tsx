@@ -1,27 +1,39 @@
 import { useEffect, useState } from "react";
-import { ChevronUp, Menu, Monitor, Moon, Sun, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  House,
+  User,
+  Cpu,
+  FileText,
+  Briefcase,
+  SunDim,
+  MoonStars,
+  ArrowUp,
+  List,
+  X,
+  EnvelopeSimple
+} from "@phosphor-icons/react";
 import { useTheme } from "@/contexts/ThemeContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { theme, setTheme } = useTheme();
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Resume", href: "#resume" },
-    { name: "Projects", href: "#projects" }
+    { name: "Home", href: "#home", icon: House },
+    { name: "About", href: "#about", icon: User },
+    { name: "Skills", href: "#skills", icon: Cpu },
+    { name: "Resume", href: "#resume", icon: FileText },
+    { name: "Projects", href: "#projects", icon: Briefcase },
+    { name: "Contact", href: "#contact", icon: EnvelopeSimple }
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
+    if (!element) return;
     const offset = 80;
-    const elementPosition = element?.getBoundingClientRect().top || 0;
+    const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - offset;
 
     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -30,11 +42,10 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
       setShowScrollTop(window.scrollY > 500);
 
       const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = window.scrollY + 140;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -52,112 +63,110 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const ThemeIcon = theme === "light" ? Sun : theme === "dark" ? Moon : Monitor;
-
   return (
     <>
-      <nav
-        className={`fixed left-0 top-0 z-50 w-full border-b transition-all duration-300 ${
-          scrolled
-            ? "border-foreground/25 bg-background/88 shadow-[0_8px_0_rgba(18,27,34,0.08)] backdrop-blur-xl"
-            : "border-transparent bg-transparent"
-        }`}
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <button onClick={() => scrollToSection("#home")} className="flex items-center gap-3">
+      {/* Floating Centered Pill Navbar */}
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4 pointer-events-none">
+        <nav className="pointer-events-auto flex items-center justify-between gap-2 p-1.5 rounded-full border border-border/80 bg-background/80 backdrop-blur-xl shadow-2xl transition-all duration-300">
+          
+          {/* Logo / Brand Pill */}
+          <button
+            onClick={() => scrollToSection("#home")}
+            className="flex items-center gap-2.5 pl-2 pr-3 py-1 rounded-full hover:bg-muted/50 transition-colors group"
+          >
             <img
               src="/assets/logo.jpg"
-              alt="Natnael Tewodros logo"
-              className="h-10 w-10 rounded-full border border-foreground/35 object-cover object-center"
+              alt="Natnael Tewodros"
+              className="w-7 h-7 rounded-full object-cover border border-border/60 group-hover:scale-105 transition-transform"
             />
-            <span className="font-display text-xl font-black text-foreground">NT</span>
+            <span className="font-display font-bold text-xs uppercase tracking-wider text-foreground">
+              NATNAEL
+            </span>
           </button>
 
-          <div className="hidden items-center gap-1 md:flex">
+          {/* Desktop Nav Items */}
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
+              const Icon = item.icon;
               const isActive = activeSection === item.href.substring(1);
               return (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`border px-3 py-2 text-sm font-bold transition-all ${
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
                     isActive
-                      ? "border-foreground bg-foreground text-background"
-                      : "border-transparent text-foreground/70 hover:border-foreground/30 hover:bg-card hover:text-foreground"
+                      ? "bg-foreground text-background shadow-sm font-bold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                   }`}
                 >
-                  {item.name}
+                  <Icon size={15} weight={isActive ? "fill" : "duotone"} />
+                  <span>{item.name}</span>
                 </button>
               );
             })}
           </div>
 
-          <div className="hidden items-center gap-2 md:flex">
-            {(["light", "dark", "system"] as const).map((mode) => {
-              const Icon = mode === "light" ? Sun : mode === "dark" ? Moon : Monitor;
-              return (
-                <button
-                  key={mode}
-                  onClick={() => setTheme(mode)}
-                  title={mode}
-                  className={`flex h-10 w-10 items-center justify-center border transition-colors ${
-                    theme === mode
-                      ? "border-foreground bg-primary text-primary-foreground"
-                      : "border-foreground/30 bg-card text-foreground/70 hover:text-foreground"
-                  }`}
-                >
-                  <Icon size={17} />
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center gap-2 md:hidden">
+          {/* Theme & Mobile Actions */}
+          <div className="flex items-center gap-1">
+            {/* Theme Toggle Button */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="flex h-10 w-10 items-center justify-center border border-foreground/30 bg-card"
-              aria-label="Toggle theme"
+              className="p-2 rounded-full text-foreground/80 hover:text-foreground hover:bg-muted/70 transition-colors"
+              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
-              <ThemeIcon size={18} />
+              {theme === "dark" ? (
+                <SunDim size={18} weight="duotone" className="text-amber-400" />
+              ) : (
+                <MoonStars size={18} weight="duotone" className="text-indigo-600" />
+              )}
             </button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className="rounded-none border border-foreground/30 bg-card hover:bg-card"
-              aria-label="Open menu"
-            >
-              {isOpen ? <X size={22} /> : <Menu size={22} />}
-            </Button>
-          </div>
-        </div>
 
+            {/* Mobile Hamburger Toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-full md:hidden text-foreground hover:bg-muted/70 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={18} weight="bold" /> : <List size={18} weight="bold" />}
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Dropdown Panel */}
         {isOpen && (
-          <div className="border-t border-foreground/20 bg-background/95 px-4 pb-4 md:hidden">
-            <div className="mx-auto flex max-w-7xl flex-col pt-3">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`border-b border-foreground/15 px-2 py-4 text-left font-bold ${
-                    activeSection === item.href.substring(1) ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
+          <div className="pointer-events-auto mt-2 p-3 rounded-2xl border border-border/80 bg-background/95 backdrop-blur-xl shadow-2xl md:hidden animate-scale-in">
+            <div className="flex flex-col gap-1">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.href.substring(1);
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-left transition-all ${
+                      isActive
+                        ? "bg-foreground text-background"
+                        : "text-foreground/80 hover:bg-muted"
+                    }`}
+                  >
+                    <Icon size={18} weight={isActive ? "fill" : "duotone"} />
+                    <span>{item.name}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
-      </nav>
+      </header>
 
+      {/* Floating Scroll To Top Button */}
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center border border-foreground bg-foreground text-background shadow-[5px_5px_0_hsl(var(--accent))] transition-transform hover:-translate-y-1"
+          className="fixed bottom-6 right-6 z-40 p-3 rounded-full border border-border/80 bg-foreground text-background shadow-2xl hover:-translate-y-1 transition-transform"
           aria-label="Scroll to top"
         >
-          <ChevronUp size={24} />
+          <ArrowUp size={18} weight="bold" />
         </button>
       )}
     </>

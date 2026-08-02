@@ -131,6 +131,10 @@ export default {
 					},
 				}
 			},
+			fontFamily: {
+				display: ["Lexend", "Space Grotesk", "sans-serif"],
+				sans: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

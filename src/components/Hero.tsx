@@ -1,78 +1,61 @@
-import { MapPin, Terminal } from "lucide-react";
+import { EnvelopeSimple, ArrowRight, MapPin, TerminalWindow } from "@phosphor-icons/react";
 import MotionText from "./MotionText";
 
 const Hero = () => {
   const developerTitles = [
-    "Software Developer",
-    "Web Developer",
+    "Full-Stack Developer",
+    "Backend & API Architecture",
     "IT & Repair Specialist",
-    "AI & ML Enthusiast",
     "Problem Solver"
   ];
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden px-4 pt-28 sm:px-6 lg:px-8">
-      <div className="absolute left-0 top-20 hidden h-px w-1/3 bg-foreground/30 lg:block" />
-      <div className="absolute right-0 top-48 hidden h-px w-1/4 bg-foreground/30 lg:block" />
-
-      <div className="relative mx-auto grid max-w-7xl items-end gap-10 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="pb-10 animate-slide-up">
-          <div className="mb-8 flex flex-wrap items-center gap-3 text-sm font-bold uppercase tracking-[0.22em] text-foreground/70">
-            <span className="inline-flex items-center gap-2 border border-foreground/30 bg-card px-3 py-2">
-              <Terminal size={16} className="text-primary" />
-              Available for full-stack roles
-            </span>
-            <span className="inline-flex items-center gap-2 px-1 py-2">
-              <MapPin size={16} className="text-accent" />
-              Addis Ababa
-            </span>
-          </div>
-
-          <h1 className="max-w-5xl text-6xl font-black leading-[0.9] text-foreground sm:text-7xl lg:text-8xl">
-            <span className="block text-5xl sm:text-6xl lg:text-7xl">👋</span>
-            <span className="block text-primary">Natnael Tewodros</span>
-          </h1>
-
-          <div className="mt-7 max-w-2xl border-y border-foreground/25 py-5">
-            <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-              <MotionText texts={developerTitles} />
-            </h2>
-          </div>
-
+    <section
+      id="home"
+      className="relative min-h-[92vh] w-full flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 px-4"
+    >
+      {/* Hero Central Content */}
+      <div className="relative z-10 max-w-5xl text-center flex flex-col items-center gap-6 animate-slide-up">
+        
+        {/* Availability & Location Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-border/80 bg-background/80 backdrop-blur-md shadow-sm">
+            <TerminalWindow size={16} weight="duotone" className="text-sky-400" />
+            Available for part-time & freelancing
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-border/80 bg-background/80 backdrop-blur-md shadow-sm">
+            <MapPin size={16} weight="duotone" className="text-rose-400" />
+            Addis Ababa, Ethiopia
+          </span>
         </div>
 
-        <div className="relative mx-auto w-full max-w-md pb-10 lg:max-w-none lg:pb-16">
-          <div className="paper-panel relative translate-y-2 -rotate-1 p-4 lg:translate-y-6">
-            <div className="absolute -left-5 top-7 z-10 bg-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-accent-foreground">
-              Portfolio
-            </div>
-            <div className="relative overflow-hidden border border-foreground/30 bg-card shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
-              <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between border-b border-foreground/15 bg-background/85 px-4 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/55 backdrop-blur-sm">
-                <span>Portrait frame</span>
-                <span>01</span>
-              </div>
-              <div className="aspect-[4/5] overflow-hidden pt-12">
-                <img
-                  src="/assets/Nati3.jpg"
-                  alt="Natnael Tewodros"
-                  className="h-full w-full object-cover object-[50%_18%] grayscale-[12%] contrast-105"
-                  style={{ color: "transparent" }}
-                />
-              </div>
-              <div className="absolute inset-x-4 bottom-4 grid grid-cols-3 border border-foreground/20 bg-background/85 text-center text-[11px] font-black uppercase tracking-[0.16em] text-foreground/75 backdrop-blur-sm">
-                <span className="border-r border-foreground/20 py-2">Full-Stack</span>
-                <span className="border-r border-foreground/20 py-2">IT</span>
-                <span className="py-2">Repair</span>
-              </div>
-            </div>
-          </div>
+        {/* Action Pill Button: Send me a message */}
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-border bg-foreground text-background font-semibold text-xs uppercase tracking-wider hover:scale-105 transition-all duration-300 shadow-xl group mt-2"
+        >
+          <EnvelopeSimple size={18} weight="duotone" />
+          <span>Send me a message</span>
+          <ArrowRight size={14} weight="bold" className="group-hover:translate-x-1 transition-transform" />
+        </a>
+
+        {/* Huge Signature Chromatic Title */}
+        <h1 className="font-display font-black text-6xl sm:text-8xl md:text-9xl uppercase tracking-tighter leading-[0.85] chromatic-text text-foreground select-none mt-4">
+          NATNAEL
+          <br />
+          TEWODROS
+        </h1>
+
+        {/* Sub-hero Subtitle & Dynamic Motion Text */}
+        <div className="mt-3 text-sm sm:text-lg md:text-xl font-medium tracking-widest uppercase text-muted-foreground max-w-2xl">
+          <MotionText texts={developerTitles} />
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-foreground/55 md:flex">
-        <span className="h-px w-12 bg-foreground/35" />
-        Scroll
-        <span className="h-px w-12 bg-foreground/35" />
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground/70 animate-bounce">
+        <span>Scroll</span>
+        <div className="w-0.5 h-6 bg-muted-foreground/40 rounded-full" />
       </div>
     </section>
   );
