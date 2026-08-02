@@ -3,7 +3,7 @@ import { Briefcase, GraduationCap, DownloadSimple, CalendarBlank, MapPinLine } f
 
 const workExperience = [
   {
-    title: "Full-time Developer",
+    title: "Software-Developer",
     company: "Information Network Security Administration (INSA)",
     date: "07/2025 – Present",
     location: "Addis Ababa, Ethiopia",
